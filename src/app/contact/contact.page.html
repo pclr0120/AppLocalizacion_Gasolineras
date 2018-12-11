@@ -1,23 +1,39 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Contact
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar>
+      <ion-title>Mapa de Gasolineras </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    
+  <div id="map_canvas"> 
+    <ion-row>
+      <ion-col >
+          <ion-button clear (click)="MiUbica()" >Mi Ubicacion</ion-button>
+      </ion-col>
+      <ion-col >
+          <ion-button clear (click)="actualizar()" >Gas cercana</ion-button>
+        </ion-col>
+      
+    </ion-row>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>
-      <ion-label>
-        Follow us on Twitter
-      </ion-label>
-    </ion-list-header>
-    <ion-item>
-      <ion-label>
-        <ion-icon name="logo-ionic" slot="start"></ion-icon>
-        @ionicframework
-      </ion-label>
-    </ion-item>
-  </ion-list>
-</ion-content>
+      
+      <ion-item style="border: solid">
+        <ion-label>Rango</ion-label>
+        <ion-select [(ngModel)]="Rango" (ionChange)="PorRango()" placeholder="Seleccione">
+          <ion-select-option value="1">1 KM</ion-select-option>
+          <ion-select-option value="2">2 KM</ion-select-option>
+          <ion-select-option value="4">4 KM</ion-select-option>
+          <ion-select-option value="6">6 KM</ion-select-option>
+          <ion-select-option value="8">8 KM</ion-select-option>
+          <ion-select-option value="10">10 KM</ion-select-option>
+          <ion-select-option value="15">15 KM</ion-select-option>
+          <ion-select-option value="20">20 KM</ion-select-option>
+          <ion-select-option value="30">30 KM</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <label *ngIf="GasolineraCercana!=null"style="color:blue">Gasolinera Mas cercana:{{GasolineraCercana.Marca}}/Se encuentra a {{metros}} Metros </label>
+ </div>
+
+ 
+  </ion-content>

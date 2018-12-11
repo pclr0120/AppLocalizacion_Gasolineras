@@ -1,5 +1,7 @@
 {
   "name": "EjemploIonic4",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

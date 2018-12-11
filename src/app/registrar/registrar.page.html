@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <!-- <ion-button (click)="cerrar()">cerrar</ion-button> -->
+
+    <ion-list>
+    
+     
+       
+      <ion-input hidden [(ngModel)]="g.gasolinearaRegistrar.ID" class="input1"></ion-input>
+      <form (ngSubmit)="Guardar();" [formGroup]="FRM">
+
+
+        <ion-item>
+
+          <ion-label >Marca:</ion-label>
+
+          <ion-input [(ngModel)]="g.gasolinearaRegistrar.Marca" maxlength="30" class="input1" required formControlName="Marca"></ion-input>
+          <ion-icon style="color:green" *ngIf="FRM.controls.Marca.valid" name="checkmark-circle" item-end></ion-icon>
+          <ion-icon style="color:red" *ngIf="FRM.controls.Marca.invalid" name="alert"item-end></ion-icon>
+
+
+        </ion-item>
+
+
+
+        <ion-item>
+          <ion-label >Descripcion:</ion-label>
+          <ion-input [(ngModel)]="g.gasolinearaRegistrar.Descripcion" maxlength="30" class="input1" required
+            formControlName="Descripcion"></ion-input>
+          <ion-icon style="color:green" *ngIf="FRM.controls.Descripcion.valid" name="checkmark-circle" item-end></ion-icon>
+          <ion-icon style="color:red" *ngIf="FRM.controls.Descripcion.invalid" name="alert"item-end></ion-icon>
+        </ion-item>
+
+        <ion-input hidden formControlName="Logo" minlength="30" [(ngModel)]="g.gasolinearaRegistrar.Logo" class="input1"></ion-input>
+        <ion-item>
+          <ion-label>Logo:</ion-label>
+          <ion-img class="Logo" (click)="GetImagen();" [src]="g.gasolinearaRegistrar.Logo"></ion-img>
+          <ion-icon style="color:green" *ngIf="FRM.controls.Logo.valid" name="checkmark-circle" item-end></ion-icon>
+          <ion-icon style="color:red" *ngIf="FRM.controls.Logo.invalid" name="alert"
+            item-end></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-label >Domicilio:</ion-label>
+          <ion-input formControlName="Domicilio" [(ngModel)]="g.gasolinearaRegistrar.Domicilio" maxlength="30" class="input1"
+            required></ion-input>
+          <ion-icon style="color:green" *ngIf="FRM.controls.Domicilio.valid" name="checkmark-circle" item-end></ion-icon>
+          <ion-icon style="color:red" *ngIf="FRM.controls.Domicilio.invalid" name="alert"
+            item-end></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-label >Telefono:</ion-label>
+          <ion-input formControlName="Telefono" maxlength="10" minlength="10" [(ngModel)]="g.gasolinearaRegistrar.Telefono" type="number" class="input1 "
+            required></ion-input>
+          <ion-icon style="color:green" *ngIf="FRM.controls.Telefono.valid" name="checkmark-circle" item-end></ion-icon>
+          <ion-icon style="color:red" *ngIf="FRM.controls.Telefono.invalid" name="alert"
+            item-end></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-label >Disel: $ </ion-label>
+          <ion-input formControlName="Disel" [(ngModel)]="g.gasolinearaRegistrar.Disel" type="number" class="input1"
+            required></ion-input>
+          <ion-icon style="color:green" *ngIf="FRM.controls.Disel.valid" name="checkmark-circle" item-end></ion-icon>
+          <ion-icon style="color:red" *ngIf="FRM.controls.Disel.invalid" name="alert"
+            item-end></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-label >Gasolina regular: $ </ion-label>
+          <ion-input formControlName="Gregular" [(ngModel)]="g.gasolinearaRegistrar.Gregular" type="number" class="input1 "
+            required></ion-input>
+          <ion-icon style="color:green" *ngIf="FRM.controls.Gregular.valid" name="checkmark-circle" item-end></ion-icon>
+          <ion-icon style="color:red" *ngIf="FRM.controls.Gregular.invalid" name="alert"
+            item-end></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-label >Gasolina premium: $</ion-label>
+          <ion-input formControlName="Gpremium" [(ngModel)]="g.gasolinearaRegistrar.Gpremium" type="number" class="input1"
+            required></ion-input>
+          <ion-icon style="color:green" *ngIf="FRM.controls.Gpremium.valid" name="checkmark-circle" item-end></ion-icon>
+          <ion-icon style="color:red" *ngIf="FRM.controls.Gpremium.invalid" name="alert"
+            item-end></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-label >Otros:</ion-label>
+          <ion-input formControlName="Otros" [(ngModel)]="g.gasolinearaRegistrar.Otros" type="text" maxlength="50"
+            class="input1"></ion-input>
+        </ion-item>
+        <!-- <ion-item >
+            <ion-label>Fecha</ion-label>
+            <ion-input [(ngModel)]="g.gasolinearaRegistrar.Fecha" type="date" ></ion-input>
+          </ion-item> -->
+        <ion-row>
+          <ion-col>
+            <ion-button color="danger" expand="full" href="/" goBack>Cancelar</ion-button>
+          </ion-col>
+          <ion-col>
+              <ion-button expand="full" color="primary" [disabled]="!FRM.valid" (click)="Guardar()">Guardar</ion-button>
+            <!-- <ion-button expand="full" color="primary" [disabled]="!FRM.valid" (click)="Guardar()">Guardar</ion-button> -->
+          </ion-col>
+        </ion-row>
+
+      </form>
+
+    </ion-list>
+
+</ion-content>
